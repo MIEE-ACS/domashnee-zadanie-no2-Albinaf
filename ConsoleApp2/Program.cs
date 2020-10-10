@@ -14,7 +14,7 @@ namespace ConsoleApp2
 
             y = x + 3;
 
-            return y;
+            return Math.Round(y,3);
         }
 
         static double segment2(double x, double R)
@@ -23,7 +23,7 @@ namespace ConsoleApp2
 
             y = Math.Sqrt(Math.Pow(R, 2) - Math.Pow(x, 2));
 
-            return y;
+            return Math.Round(y, 3);
         }
 
         static double segment3(double x)
@@ -32,7 +32,7 @@ namespace ConsoleApp2
 
             y = 3 - x / 2.0;
 
-            return y;
+            return Math.Round(y, 3);
         }
 
         static double segment4(double x)
@@ -41,7 +41,7 @@ namespace ConsoleApp2
 
             y = x - 6;
 
-            return y;
+            return Math.Round(y, 3);
         }
 
         static void Main(string[] args)
@@ -57,7 +57,12 @@ namespace ConsoleApp2
             {
                 Console.Write("Введённый аргумент входит в область окружности. Введите радиус R: "); //радиус равен 3
                 double R = double.Parse(Console.ReadLine());
-                if (R < 3 || R > 3)
+
+                if (R == 0)
+                {
+                    Console.WriteLine("Эта точка - центр окружности. Y(x) = 0.");
+                    
+                } else if(R < 3 || R > 3)
                 {
                     Console.WriteLine("Неправильно введён радиус. Проверьте его значение и повторите попытку.");
                 }
@@ -77,7 +82,7 @@ namespace ConsoleApp2
             }
             else if (x < -5 || x > 9)
             {
-                Console.WriteLine("Функция в этой точке не определена.");
+                Console.WriteLine("Х лежит вне функции.");
             }
 
             //распечтаем значения функции (только нарисованной на графике задания):
@@ -88,19 +93,19 @@ namespace ConsoleApp2
             {
                 if (a <= -3)
                 {
-                    Console.WriteLine($"y({a}) = {Math.Round(segment1(a), 3)}");
+                    Console.WriteLine($"y({a}) = {segment1(a)}");
                 }
                 else if (a <= 0 && a >= -3)
                 {
-                    Console.WriteLine($"y({a}) = {Math.Round(segment2(a, 3), 3)}");
+                    Console.WriteLine($"y({a}) = {segment2(a, 3)}");
                 }
                 else if (a >= 0 && a <= 6)
                 {
-                    Console.WriteLine($"y({a}) = {Math.Round(segment3(a), 3)}");
+                    Console.WriteLine($"y({a}) = {segment3(a)}");
                 }
                 else if (a >= 6)
                 {
-                    Console.WriteLine($"y({a}) = {Math.Round(segment4(a), 3)}");
+                    Console.WriteLine($"y({a}) = {segment4(a)}");
                 }
             }
 
