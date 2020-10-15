@@ -89,24 +89,25 @@ namespace ConsoleApp2
 
             Console.WriteLine("Значения функции с шагом аргумента 0.2: ");
 
-            for (double a = -3; a <= 9; a += 0.2)
+            for (double a = -5; a <= 9.2; a += 0.2)
             {
                 if (a <= -3)
                 {
-                    Console.WriteLine($"y({a}) = {segment1(a)}");
+                    Console.WriteLine($"y({Math.Round(a, 3)}) = {segment1(a)}");
                 }
                 else if (a <= 0 && a >= -3)
                 {
-                    Console.WriteLine($"y({a}) = {segment2(a, 3)}");
+                    Console.WriteLine($"y({Math.Round(a, 3)}) = {segment2(a, 3)}");
                 }
                 else if (a >= 0 && a <= 6)
                 {
-                    Console.WriteLine($"y({a}) = {segment3(a)}");
+                    Console.WriteLine($"y({Math.Round(a, 3)}) = {segment3(a)}");
                 }
-                else if (a >= 6)
+                else if (a >= 6 && a <= 9.2)
                 {
-                    Console.WriteLine($"y({a}) = {segment4(a)}");
+                    Console.WriteLine($"y({Math.Round(a, 3)}) = {segment4(a)}");
                 }
+                
             }
 
             Console.ReadKey();
